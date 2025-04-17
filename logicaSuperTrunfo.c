@@ -14,6 +14,7 @@ int main () {
     float percapita1, percapita2;
     unsigned long int superpoder1, superpoder2;
     int pontostotais1, pontostotais2;
+    int escolha_comparacao;
 
     
 
@@ -106,95 +107,109 @@ int main () {
     printf("Super poder: %lu \n", superpoder2);
 
 
-//comparando as cartas e imprimindo na tela
+//perguntando ao jogador qual atributo comparar
     printf("Agora, vamos comparar as duas cartas!\n");
-
+    printf("Escolha qual atributo comparar:\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Quantidade de Pontos Turisticos\n");
+    printf("5. Densidade Populacional\n");
+    printf("6. Superpoder\n");
+    scanf("%d", &escolha_comparacao);
+    
+//fazendo a comparacao da escolha do jogador
+    switch (escolha_comparacao) {
+        case 1:
     printf("Comparação de cartas (Atributo: População):\n");        
     printf("Carta 1 (%s): %lu\n", nome_cidade1, populacao1);        //imprime a mensagem com o nome da cidade e o atributo de cada carta
-    printf("Carta 1 (%s): %lu\n", nome_cidade2, populacao2);        //imprime a mensagem com o nome da cidade e o atributo de cada carta
-    if(populacao1 > populacao2){                                    // compara os dois valores
+    printf("Carta 2 (%s): %lu\n", nome_cidade2, populacao2);        //imprime a mensagem com o nome da cidade e o atributo de cada carta
+    if (populacao1 > populacao2){                                    // compara os dois valores
         printf("A Carta 1 (%s) venceu!!\n", nome_cidade1);          //se o primeiro valor for maior, imprimirá essa mensagem
         pontostotais1 ++;                                           //e vai adicionar 1 ponto total a carta 1
-    } else{
+    } else if (populacao1 < populacao2){
         printf("A Carta 2 (%s) venceu!!\n", nome_cidade2);          //se o segundo valor for maior, imprimirá essa mensagem
         pontostotais2 ++;                                           //e vai adicionar 1 ponto total a carta 2
+    } else {
+        printf("Empate!!\n");
     }
+        break;
 
+        case 2:
     printf("Comparação de cartas (Atributo: Área):\n");
     printf("Carta 1 (%s): %.2f\n", nome_cidade1, area1);            //imprime a mensagem com o nome da cidade e o atributo de cada carta
-    printf("Carta 1 (%s): %.2f\n", nome_cidade2, area2);            //imprime a mensagem com o nome da cidade e o atributo de cada carta
-    if(area1 > area2){                                              // compara os dois valores
+    printf("Carta 2 (%s): %.2f\n", nome_cidade2, area2);            //imprime a mensagem com o nome da cidade e o atributo de cada carta
+    if (area1 > area2){                                              // compara os dois valores
         printf("A Carta 1 (%s) venceu!!\n", nome_cidade1);          //se o primeiro valor for maior, imprimirá essa mensagem
         pontostotais1 ++;                                           //e vai adicionar 1 ponto total a carta 1
-    } else{
+    } else if (area1 < area2){
         printf("A Carta 2 (%s) venceu!!\n", nome_cidade2);          //se o segundo valor for maior, imprimirá essa mensagem
         pontostotais2 ++;                                           //e vai adicionar 1 ponto total a carta 2
+    } else{
+        printf("Empate!!\n");
     }
+        break;
 
+        case 3:
     printf("Comparação de cartas (Atributo: PIB):\n");
     printf("Carta 1 (%s): %llu\n", nome_cidade1, pib1);             //imprime a mensagem com o nome da cidade e o atributo de cada carta
-    printf("Carta 1 (%s): %llu\n", nome_cidade2, pib2);             //imprime a mensagem com o nome da cidade e o atributo de cada carta
+    printf("Carta 2 (%s): %llu\n", nome_cidade2, pib2);             //imprime a mensagem com o nome da cidade e o atributo de cada carta
     if(pib1 > pib2){                                                // compara os dois valores
         printf("A Carta 1 (%s) venceu!!\n", nome_cidade1);          //se o primeiro valor for maior, imprimirá essa mensagem
         pontostotais1 ++;                                           //e vai adicionar 1 ponto total a carta 1
-    } else{
+    } else if (pib1 < pib2){
         printf("A Carta 2 (%s) venceu!!\n", nome_cidade2);          //se o segundo valor for maior, imprimirá essa mensagem
         pontostotais2 ++;                                           //e vai adicionar 1 ponto total a carta 2
+    } else {
+        printf("Empate!!\n");
     }
+        break;
 
+        case 4:
     printf("Comparação de cartas (Atributo: Pontos Turisticos):\n");
     printf("Carta 1 (%s): %d\n", nome_cidade1, pontos1);            //imprime a mensagem com o nome da cidade e o atributo de cada carta
-    printf("Carta 1 (%s): %d\n", nome_cidade2, pontos2);            //imprime a mensagem com o nome da cidade e o atributo de cada carta
+    printf("Carta 2 (%s): %d\n", nome_cidade2, pontos2);            //imprime a mensagem com o nome da cidade e o atributo de cada carta
     if(pontos1 > pontos2){                                          // compara os dois valores
         printf("A Carta 1 (%s) venceu!!\n", nome_cidade1);          //se o primeiro valor for maior, imprimirá essa mensagem
         pontostotais1 ++;                                           //e vai adicionar 1 ponto total a carta 1
-    } else{
+    } else if (pontostotais1 < pontostotais2){
         printf("A Carta 2 (%s) venceu!!\n", nome_cidade2);          //se o segundo valor for maior, imprimirá essa mensagem
         pontostotais2++;                                            //e vai adicionar 1 ponto total a carta 2
-    }
-
-    printf("Comparação de cartas (Atributo: PIB Per Capita):\n");
-    printf("Carta 1 (%s): %.2f\n", nome_cidade1, percapita1);       //imprime a mensagem com o nome da cidade e o atributo de cada carta
-    printf("Carta 1 (%s): %.2f\n", nome_cidade2, percapita2);       //imprime a mensagem com o nome da cidade e o atributo de cada carta
-    if(percapita1 > percapita2){                                    // compara os dois valores
-        printf("A Carta 1 (%s) venceu!!\n", nome_cidade1);          //se o primeiro valor for maior, imprimirá essa mensagem
-        pontostotais1 ++;                                           //e vai adicionar 1 ponto total a carta 1
     } else{
-        printf("A Carta 2 (%s) venceu!!\n", nome_cidade2);          //se o segundo valor for maior, imprimirá essa mensagem
-        pontostotais2++;                                            //e vai adicionar 1 ponto total a carta 2
+        printf("Empate!!\n");
     }
+        break;
 
+        case 5:
     printf("Comparação de cartas (Atributo: Densidade Populacional):\n");
     printf("Carta 1 (%s) %.2f\n", nome_cidade1, densidade1);        //imprime a mensagem com o nome da cidade e o atributo de cada carta
-    printf("Carta 1 (%s) %.2f\n", nome_cidade2, densidade2);        //imprime a mensagem com o nome da cidade e o atributo de cada carta
+    printf("Carta 2 (%s) %.2f\n", nome_cidade2, densidade2);        //imprime a mensagem com o nome da cidade e o atributo de cada carta
     if(densidade1 < densidade2){                                    // compara os dois valores
         printf("A Carta 1 (%s) venceu!!\n", nome_cidade1);          //se o primeiro valor for maior, imprimirá essa mensagem
         pontostotais1 ++;                                           //e vai adicionar 1 ponto total a carta 1
-    } else{
+    } else if (densidade1 > densidade2){
         printf("A Carta 2 (%s) venceu!!\n", nome_cidade2);          //se o segundo valor for maior, imprimirá essa mensagem
         pontostotais2++;                                            //e vai adicionar 1 ponto total a carta 2
+    } else {
+        printf("Empate!!\n");
     }
+        break;
 
+        case 6:
     printf("Comparação de cartas (Atributo: Superpoder):\n");
     printf("Carta 1 (%s): %lu\n", nome_cidade1, superpoder1);       //imprime a mensagem com o nome da cidade e o atributo de cada carta
-    printf("Carta 1 (%s): %lu\n", nome_cidade2, superpoder2);       //imprime a mensagem com o nome da cidade e o atributo de cada carta
+    printf("Carta 2 (%s): %lu\n", nome_cidade2, superpoder2);       //imprime a mensagem com o nome da cidade e o atributo de cada carta
     if(superpoder1 > superpoder2){                                  // compara os dois valores
         printf("A Carta 1 (%s) venceu!!\n", nome_cidade1);          //se o primeiro valor for maior, imprimirá essa mensagem
         pontostotais1 ++;                                           //e vai adicionar 1 ponto total a carta 1
-    } else{
+    } else if (superpoder1 < superpoder2){
         printf("A Carta 2 (%s) venceu!!\n", nome_cidade2);          //se o segundo valor for maior, imprimirá essa mensagem
         pontostotais2++;                                            //e vai adicionar 1 ponto total a carta 2
-    }
-
-
-
-    //mostrando a carta vencedora no total
-    printf("A carta vencedora é...\n");
-
-    if (pontostotais1 > pontostotais2){                             //compara os pontos totais
-        printf("A Carta 1 (%s) é a vencedora!!!! Parabéns!!!\n", nome_cidade1);     //se os pontos totais da carta 1 forem maiores, imprimirá essa mensagem
     } else {
-        printf("A Carta 2 (%s) é a vencedora!!!! Parabéns!!!\n", nome_cidade2);     //se os pontos totais da carta 2 forem maiores, imprimirá essa mensagem
+        printf("Empate!!\n");
     }
+        break;
+}
     return 0;
+
 }
